@@ -34,11 +34,10 @@ img {
  image[0] = 'IMG_0088.JPG'
  image[1] = 'IMG_0096.JPG'
  image[2] = 'IMG_0104.JPG'
- var rand = 60/image.length
  function randomimage() {
  	currentdate = new Date();
- 	image_number = date.getDate();
- 	image_number = Math.max(image_number, num_images - 1 );
+ 	image_number = currentdate.getDate();
+ 	image_number = Math.min(image_number, num_images - 1 );
  	return(image[image_number])
  }
  document.write("<img src='" + imlocation + randomimage()+ "'>");
