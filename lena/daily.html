@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+</style>
+</head>
+<body>
 <script type="text/javascript">
 <!--
  var imlocation = "images/";
@@ -16,11 +36,13 @@
  image[2] = 'IMG_0104.JPG'
  var rand = 60/image.length
  function randomimage() {
- 	currentdate = new Date()
- 	image_number = 1
+ 	currentdate = new Date();
+ 	image_number = date.getDate();
  	image_number = Math.max(image_number, num_images - 1 );
  	return(image[image_number])
  }
  document.write("<img src='" + imlocation + randomimage()+ "'>");
 //-->
 </script>
+</body>
+</html>
