@@ -1,0 +1,26 @@
+<script type="text/javascript">
+<!--
+ var imlocation = "images/";
+ var currentdate = 0;
+ var image_number = 0;
+ var num_images = 3;
+ function ImageArray (n) {
+   this.length = n;
+   for (var i =1; i <= n; i++) {
+     this[i] = ' '
+   }
+ }
+ image = new ImageArray(num_images)
+ image[0] = 'IMG_0088.JPG'
+ image[1] = 'IMG_0096.JPG'
+ image[2] = 'IMG_0104.JPG'
+ var rand = 60/image.length
+ function randomimage() {
+ 	currentdate = new Date()
+ 	image_number = 1
+ 	image_number = Math.max(image_number, num_images - 1 );
+ 	return(image[image_number])
+ }
+ document.write("<img src='" + imlocation + randomimage()+ "'>");
+//-->
+</script>
