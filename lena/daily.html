@@ -34,7 +34,8 @@ img {
 <script type="text/javascript">
 <!--
  
- var Texte = ["Ich liebe es mit dir zu kuscheln!",
+ var Texte = ["Frohe Weihnachten! \r\n Ich liebe dich mein Schatz!",
+			"Ich liebe es mit dir zu kuscheln!",
 			"Ich liebe dich für deinen Humor",
 			"Ich liebe dich dafür, wir du mit mir rum blödelst und Spaß haben kannst!",
 			"Ich liebe es wenn du mir tolle Dinge aus deinem Leben zeigst!",
@@ -62,10 +63,15 @@ img {
    }
  }
  image = new ImageArray(num_images)
- function randomimage() {
- 	currentdate = new Date();
- 	image_number = currentdate.getDate() % num_images;
- 	image_number = 12;
+ function randomimage() {var now = new Date();
+	var start = new Date(now.getFullYear(), 0, 0);
+	var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+	var oneDay = 1000 * 60 * 60 * 24;
+	var day = (Math.floor(diff / oneDay) - 359 + 366) % 366;
+	console.log('Day of year: ' + day);
+	
+ 	image_number = day % num_images;
+	console.log('Image: ' + image_number);
 	return(image[image_number])
  }
  
