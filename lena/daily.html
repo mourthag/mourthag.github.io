@@ -15,32 +15,61 @@ img {
     max-height: 100%;
     max-width: 100%;
 }
+.bottom-centered {
+	margin: 0;
+	text-align:center;
+	padding: 10px;
+	background: rgba(65, 65, 65, 0.5);
+	color: white;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
 </style>
 </head>
 <body>
 <script type="text/javascript">
 <!--
+ 
+ var Texte = ["Ich liebe es mit dir zu kuscheln!",
+			"Ich liebe dich für deinen Humor",
+			"Ich liebe dich dafür, wir du mit mir rum blödelst und Spaß haben kannst!",
+			"Ich liebe es wenn du mir tolle Dinge aus deinem Leben zeigst!",
+			"Ich liebe dich, weil du das schönste Lächeln auf dieser Welt hast!",
+			"Ich liebe dich für deine Skischulstunden! :D",
+			"Ich liebe es wie du mich küsst!",
+			"Ich liebe dich für die unglaublich tolle Zeit die wir zusammen haben!",
+			"Ich liebe es mit dir die Welt zu erkunden!",
+			"Ich liebe dich für dein Interesse an alten Klassikern und Oldtimern!",
+			"Ich liebe es mit dir auf Konzerte zu gehen!",
+			"Ich liebe dich, weil du ein verdammt guter Spielgegner bist!",
+			"Ich liebe es das zu lesen, was du schreibst und bin jedes mal begeistert von dir!",
+			"Test13",
+			"Test14",
+			];
+ 
  var imlocation = "images/";
  var currentdate = 0;
  var image_number = 0;
- var num_images = 3;
+ var num_images = 13;
  function ImageArray (n) {
    this.length = n;
-   for (var i =1; i <= n; i++) {
-     this[i] = ' '
+   for (var i =0; i < n; i++) {
+     this[i] = i + '.JPG'
    }
  }
  image = new ImageArray(num_images)
- image[0] = 'IMG_0088.JPG'
- image[1] = 'IMG_0096.JPG'
- image[2] = 'IMG_0104.JPG'
  function randomimage() {
  	currentdate = new Date();
- 	image_number = currentdate.getDate();
- 	image_number = Math.min(image_number, num_images - 1 );
- 	return(image[image_number])
+ 	image_number = currentdate.getDate() % num_images;
+ 	image_number = 12;
+	return(image[image_number])
  }
+ 
  document.write("<img src='" + imlocation + randomimage()+ "'>");
+ document.write("<div class='bottom-centered'>" + Texte[image_number] + "</div>");
 //-->
 </script>
 </body>
