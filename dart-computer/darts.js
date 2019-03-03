@@ -3,6 +3,7 @@ var score = 0;
 var scores = [];
 
 var set = 0;
+var setPoints = 0;
 
 var numPlayers = 4;
 var activePlayer = 0;
@@ -26,7 +27,7 @@ function reset() {
 	activePlayer = 0;
 	set = 0;
 	
-	var table = document.getElementsByClassName("scoreboard")[0];
+	var table = document.getElementById("scoreboard");
 	table.innerHTML = "";
 	var headerRow = table.insertRow(-1);
 	
@@ -46,41 +47,30 @@ function reset() {
 		cell.className = "scoreboard value";
 		scores.push(501);
 	}
+	var newRow = table.insertRow(-1);
+	var newCell = newRow.insertCell(-1);
+	newCell.innerHTML = 501;
+	newCell.className = "scoreboard value";
 }
 
 function throwDart(element) {
 	var throwData = getThrowData(element);
 	
-	
-	var table = document.getElementsByClassName("scoreboard")[0];
+	var table = document.getElementById("scoreboard");
 	
 	var row = table.rows[table.rows.length - 1];
-	var cell;
-	
-	if(set == 0) {
-		if(activePlayer == 0)  {
-			row = table.insertRow(-1);
-		}
-		cell = row.insertCell(activePlayer);
-		cell.className = "scoreboard value";
-		
-		var lastScore = table.rows[table.rows.length - 2].cells[activePlayer];
-		
-		
-		cell.innerHTML = lastScore.innerHTML;
-	}
-	else {
-		cell = row.cells[activePlayer];
-	}
+	var cell = row.cells[activePlayer];
 	
 	var score = parseInt(cell.innerHTML);
 	score -= throwData.value;
+	setPoints += throwData.value;
+	scores[activePlayer] = score;
 	
 	if(score <= 0) {
 		score = 0;
 		cell.innerHTML = score;
 		
-		alert("Player " + activePlayer + " wins!")
+		alert("Player " + (activePlayer+1) + " wins!")
 		reset();
 		
 		return;
@@ -98,9 +88,51 @@ function throwDart(element) {
 		
 		table.rows[0].cells[activePlayer].className = "scoreboard header active";
 		
+		if(activePlayer == 0)  {
+			row = table.insertRow(-1);
+		}
+		
+		var cell = row.insertCell(activePlayer);
+		cell.className = "scoreboard value";
+		
+		var lastScore = table.rows[table.rows.length - 2].cells[activePlayer];
+		
+		
+		cell.innerHTML = lastScore.innerHTML;
+		
+		
 		set = 0;
+		setPoints = 0;
 	}
+	setCurrentPlayerPanel();
 	
+}
+
+function setCurrentPlayerPanel() {
+	var currentPlayerElement = document.getElementById("currentplayer");
+	currentPlayerElement.innerHTML = "Player " + (activePlayer + 1);
+	
+	var dartsLeftElement = document.getElementById("setdartsleft");
+	dartsLeftElement.innerHTML = (3 - set);
+	
+	var pointsThrownElement = document.getElementById("pointsthrown");
+	pointsThrownElement.innerHTML = setPoints;
+	
+	var pointsLeftElement = document.getElementById("pointsleft");
+	pointsLeftElement.innerHTML = scores[activePlayer];
+	
+	
+	var possibleFinishers = getPossibleFinishers(scores[activePlayer], 3 - set);
+	possibleFinishers.sort(function(a, b){
+	// ASC  -> a.length - b.length
+	// DESC -> b.length - a.length
+	return a.length - b.length;
+	});
+	var finishersElement = document.getElementById("finishers");
+	finishersElement.innerHTML = "";
+	for(var i = 0; i < Math.min(3,possibleFinishers.length); i++) {
+		finishersElement.innerHTML += "<p>" + possibleFinishers[i] + "</p>";
+	}
 }
 
 function getThrowData(element) {
@@ -136,7 +168,7 @@ function getPossibleFinishers(score, numDarts) {
 	return getCombinations(score, numDarts, [], []);
 }
 
-var multTexts = ["", "D", "T"];
+var multiplicatorTexts = ["", "D", "T"];
 
 function getCombinations(score, numDarts, combinations, usedDarts) {
 	
@@ -145,12 +177,12 @@ function getCombinations(score, numDarts, combinations, usedDarts) {
 	
 	var newCombinations = combinations;
 
-	if(usedDarts.length == numDarts && score == sum && usedDarts[usedDarts.length - 1].multiplicator == 2) {
-		var text = usedDarts.reduce(function(pv, cv) {return pv + " " + multTexts[cv.multiplicator - 1] + cv.text}, "");
+	if(score == sum && usedDarts[usedDarts.length - 1].multiplicator == 2) {
+		var text = usedDarts.reduce(function(pv, cv) {return pv + " " + multiplicatorTexts[cv.multiplicator - 1] + cv.text}, "");
 		newCombinations.push(text);
 	}
 	else if(usedDarts.length < numDarts) {
-		for(var base = 1; base <= 20; base++) {
+		for(var base = 20; base >= 1; base--) {
 			for(var multiplicator = 1; multiplicator <= 3; multiplicator++) {
 				
 				

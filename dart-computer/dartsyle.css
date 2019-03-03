@@ -10,7 +10,7 @@ body {
 }
 
 section {
-	width:50%;
+	width:33%;
 }
 
 th {
@@ -39,6 +39,7 @@ th {
 .flex-container {
 	display:flex;
 	flex-direction: column;
+	align-items:center;
 	
 }
 
@@ -52,7 +53,6 @@ th {
 table {
 	margin-left:auto;
 	margin-right:auto;
-	
 }
 
 .infotable {
