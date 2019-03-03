@@ -1,0 +1,113 @@
+html, body {
+	height:100%;
+}
+
+body {
+	background-image: linear-gradient(black, gray);
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	color:white;
+}
+
+section {
+	width:50%;
+}
+
+th {
+	background-color:black;
+	color: white;
+}
+
+.scoreboard {
+	background-color:white;
+	color:black;
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+
+.scoreboard.header {
+	color:black;
+	width:100px;
+}
+
+.scoreboard.header.active {
+	background-color:red;
+	color:white;
+}
+
+
+.flex-container {
+	display:flex;
+	flex-direction: column;
+	
+}
+
+/* große Viewports */
+@media (orientation: landscape) {
+.flex-container {
+    flex-direction: row;
+  }
+}
+
+table {
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+.infotable {
+	background-color: white;
+	color: black;
+	text-align: center;
+	border: 3px solid red;
+	border-collapse: collapse;
+}
+
+.infotable td {
+	min-width: 50px;
+	padding: 5px;
+	border: 3px solid black;
+}
+
+.score.zero {
+	background-color:white;
+	color:black;
+	text-align:center;
+}
+
+.score {
+	cursor:pointer;
+	text-align:center;
+}
+
+.score.twenty, .score.eighteen, .score.fourteen, .score.thirteen, .score.twelve, .score.ten,
+.score.eight, .score.seven, .score.three, .score.two {
+	background-color:black;
+	color:white;
+}
+
+.score.double.twenty, .score.triple.twenty, .score.double.eighteen, .score.triple.eighteen, 
+.score.double.fourteen, .score.triple.fourteen, .score.double.thirteen, .score.triple.thirteen, 
+.score.double.twelve, .score.triple.twelve, .score.double.ten, .score.triple.ten,
+.score.double.eight, .score.triple.eight, .score.double.seven, .score.triple.seven,
+.score.double.three, .score.triple.three, .score.double.two, .score.triple.two {
+	background-color:red;
+	color:white;
+	
+}
+
+.score.nineteen, .score.seventeen, .score.sixteen, .score.fifteen, .score.eleven, .score.nine,
+.score.six, .score.five, .score.four, .score.one {
+	background-color:white;
+	color:black;
+}
+
+.score.double.nineteen, .score.triple.nineteen, .score.double.seventeen, .score.triple.seventeen, 
+.score.double.sixteen, .score.triple.sixteen, .score.double.fifteen, .score.triple.fifteen,
+.score.double.eleven, .score.triple.eleven, .score.double.nine, .score.triple.nine,
+.score.double.six, .score.triple.six, .score.double.five, .score.triple.five,
+.score.double.four, .score.triple.four, .score.double.one, .score.triple.one {
+	background-color:green;
+	color: white;
+	
+}
