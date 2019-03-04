@@ -10,7 +10,7 @@ body {
 }
 
 section {
-	width:33%;
+	width:100%;
 }
 
 th {
@@ -38,19 +38,16 @@ th {
 
 .flex-container {
 	display:flex;
+	height:100%;
+	width:100%;
 	flex-direction: column;
 	align-items:center;
 	
 }
 
-/* große Viewports */
-@media (orientation: landscape) {
-.flex-container {
-    flex-direction: row;
-  }
-}
 
 table {
+	width:80%;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -110,4 +107,19 @@ table {
 	background-color:green;
 	color: white;
 	
+}
+
+
+/* große Viewports */
+@media (orientation: landscape) {
+	.flex-container {
+		flex-direction: row;
+	}
+}
+
+@media (orientation: portrait) {
+	
+	td {
+	  height:40px;
+	}
 }
