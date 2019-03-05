@@ -109,17 +109,26 @@ function throwDart(element) {
 }
 
 function setCurrentPlayerPanel() {
-	var currentPlayerElement = document.getElementById("currentplayer");
-	currentPlayerElement.innerHTML = "Player " + (activePlayer + 1);
+	var currentPlayerElements = Array.from(document.getElementsByClassName("currentplayer"));
+	currentPlayerElements.forEach(element => {
+		element.innerHTML = "Player " + (activePlayer + 1);
+		
+	});
 	
-	var dartsLeftElement = document.getElementById("setdartsleft");
-	dartsLeftElement.innerHTML = (3 - set);
+	var dartsLeftElements = Array.from(document.getElementsByClassName("setdartsleft"));
+	dartsLeftElements.forEach(element => {
+		element.innerHTML = (3 - set);
+	});
 	
-	var pointsThrownElement = document.getElementById("pointsthrown");
-	pointsThrownElement.innerHTML = setPoints;
+	var pointsThrownElements = Array.from(document.getElementsByClassName("pointsthrown"));
+	pointsThrownElements.forEach(element => {
+		element.innerHTML = setPoints;
+	});
 	
-	var pointsLeftElement = document.getElementById("pointsleft");
-	pointsLeftElement.innerHTML = scores[activePlayer];
+	var pointsLeftElements = Array.from(document.getElementsByClassName("pointsleft"));
+	pointsLeftElements.forEach(element => {
+		element.innerHTML = scores[activePlayer];
+	});
 	
 	
 	var possibleFinishers = getPossibleFinishers(scores[activePlayer], 3 - set);
@@ -128,11 +137,13 @@ function setCurrentPlayerPanel() {
 	// DESC -> b.length - a.length
 	return a.length - b.length;
 	});
-	var finishersElement = document.getElementById("finishers");
-	finishersElement.innerHTML = "";
-	for(var i = 0; i < Math.min(3,possibleFinishers.length); i++) {
-		finishersElement.innerHTML += "<p>" + possibleFinishers[i] + "</p>";
-	}
+	var finishersElements = Array.from(document.getElementsByClassName("finishers"));
+	finishersElements.forEach(element => {
+		element.innerHTML = "";
+		for(var i = 0; i < Math.min(3,possibleFinishers.length); i++) {
+			element.innerHTML += "<p>" + possibleFinishers[i] + "</p>";
+		}
+	});
 }
 
 function getThrowData(element) {

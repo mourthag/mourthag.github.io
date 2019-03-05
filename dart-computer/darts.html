@@ -10,9 +10,9 @@
 	<section>
 		<table class="dartboard">
 			<tr>
-				<th>Single</th>
-				<th>Double</th>
-				<th>Triple</th>
+				<th class="scorehead">Single</th>
+				<th class="scorehead">Double</th>
+				<th class="scorehead">Triple</th>
 			</tr>
 			<tr>
 				<td class="score twenty">20</td>
@@ -126,21 +126,47 @@
 		</table>
 	</section>
 	
-	<section>
-		<table class="infotable">
+	<section id="middlesection">
+		<table class="infotable middle">
 			<tr>
-				<td id="currentplayer" class="scoreboard header active" colspan="4">Player 1</td>
+				<td class="currentplayer scoreboard header active" colspan="4">Player 1</td>
 			</tr>
 			<tr>
-				<td id="setdartsleft">3</td>
-				<td id="pointsthrown">0</td>
-				<td id="pointsleft">501</td>
-				<td id="finishers"></td>
+				<th>Darts left</th>
+				<th>Points thrown</th>
+				<th>Points left</th>
+				<th>Possible finishers</th>
+			</tr>
+			<tr>
+				<td class="setdartsleft">3</td>
+				<td class="pointsthrown">0</td>
+				<td class="pointsleft">501</td>
+				<td class="finishers"></td>
 			</tr>
 		</table>
 	</section>
 	
-	<section>
+	<section id="rightsection">
+		<table class="infotable right">
+			<tr>
+				<td class="currentplayer scoreboard header active" colspan="4">Player 1</td>
+			</tr>
+			<tr>
+				<th>Darts left</th>
+				<th>Points thrown</th>
+				<th>Points left</th>
+				<th>Possible finishers</th>
+			</tr>
+			<tr>
+				<td class="setdartsleft">3</td>
+				<td class="pointsthrown">0</td>
+				<td class="pointsleft">501</td>
+				<td class="finishers"></td>
+			</tr>
+		</table>
+
+		<div class="rightsectionpadding"></div>
+
 		<table id="scoreboard" class="scoreboard">
 		</table>
 	</section>
