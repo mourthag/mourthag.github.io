@@ -10,6 +10,8 @@ body {
 }
 
 section {
+	overflow:auto;
+	max-height:80%;
 	width:100%;
 }
 
@@ -117,8 +119,16 @@ table {
 	}
 }
 
+@media (min-aspect-ratio:2/1) {
+	.score {
+		height:20px;
+	}
+}
+
 @media (orientation: portrait) {
-	
+	table {
+		padding-top:50px;
+	}
 	td {
 	  height:40px;
 	}
