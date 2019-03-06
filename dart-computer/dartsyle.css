@@ -3,6 +3,7 @@ html, body {
 }
 
 body {
+	font-size: 1.4em;
 	background-image: linear-gradient(black, gray);
 	background-size: auto 100%;
 	background-repeat: no-repeat;
@@ -31,12 +32,13 @@ table {
 }
 
 .score {
-	height:35px;
+	font-size: 2em;
 	cursor:pointer;
 	text-align:center;
 }
 
 .scorehead {
+	font-size: 2em;
 	background-color:black;
 	color: white;
 }
