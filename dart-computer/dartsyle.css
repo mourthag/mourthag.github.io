@@ -3,7 +3,6 @@ html, body {
 }
 
 body {
-	font-size: 1.4em;
 	background-image: linear-gradient(black, gray);
 	background-size: auto 100%;
 	background-repeat: no-repeat;
@@ -90,18 +89,26 @@ table {
 
 .infotable th {
 	
-	border: 3px solid black;
-	border-bottom: 3px solid white;
+	font-size: 1.15em;
+	border: 2px solid black;
+	border-bottom: 2px solid white;
 }
 
 .infotable td {
-	min-width: 50px;
+	
+	font-size: 1.4em;
+	min-width: 3.4em;
 	padding: 5px;
-	border: 3px solid black;
+	border: 2px solid black;
 }
 
+.scoreboardcontainer {
+	max-height: 50%;
+	overflow: auto;
+}
 
 .scoreboard {
+	font-size: 1.2em;
 	background-color:white;
 	color:black;
 	border: 2px solid black;
@@ -110,6 +117,7 @@ table {
 }
 
 .scoreboard.header {
+	min-width: 3.8em;
 	color:black;
 	width:100px;
 }
@@ -119,15 +127,18 @@ table {
 	color:white;
 }
 
+.middlepadding {
+	min-height: 4em;
+}
 
 @media (orientation: landscape) {
+	body {
+		font-size: 0.8em;
+	}
 	.flex-container {
 		flex-direction: row;
 	}
-	.rightsectionpadding {
-		min-height: 50px;
-	}
-	.infotable.middle{
+	.hidelandscape{
 		display:none;
 	}
 }
@@ -135,12 +146,12 @@ table {
 
 @media (orientation: portrait) {
 	table {
-		padding-top:50px;
+		padding: top 4em;
 	}
 	td {
-	  height:40px;
+	  height:2em;
 	}
-	.infotable.right{
+	.hideportrait{
 		display:none;
 	}
 }
