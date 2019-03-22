@@ -66,7 +66,7 @@ function throwDart(element) {
 	setPoints += throwData.value;
 	scores[activePlayer] = score;
 	
-	if(score <= 0) {
+	if(throwData.multiplicatorFactor == 2 && score == 0) {
 		score = 0;
 		cell.innerHTML = score;
 		
@@ -74,7 +74,12 @@ function throwDart(element) {
 		reset();
 		
 		return;
-	
+	}
+	else if (score <= 1){
+			score += throwData.value;
+			setPoints -= throwData.value;
+			scores[activePlayer] = score;
+			set = 2;
 	}
 	
 	cell.innerHTML = score;
