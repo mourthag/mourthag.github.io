@@ -3,7 +3,7 @@ var userPosition;
 window.onload =
     function() {
 
-        window.addEventListener("deviceorientation", handleOrientation);
+        window.addEventListener("deviceorientationabsolute", handleOrientation);
 
         $.get('https://restcountries.eu/rest/v2/name/japan?fields=name;latlng', function(data, status) {
             countries = data;
