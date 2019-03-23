@@ -1,5 +1,11 @@
 var countries;
 var userPosition;
+
+var currentDirection;
+var currentTarget;
+
+var guessedDirection;
+
 window.onload =
     function() {
 
@@ -7,15 +13,14 @@ window.onload =
 
         $.get('https://restcountries.eu/rest/v2/all?fields=name;latlng', function(data, status) {
             countries = data;
+            nextTarget();
         });
         
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     userPosition = position;
                     document.body.innerHTML += "<p>" + position.coords.latitude + " " + position.coords.longitude + "</p>";
-    
             });
-            
        }
         else {
             alert("Can't find current position. \n Please enable geolocation in your browser!");
@@ -25,19 +30,25 @@ window.onload =
     
     }
 
+function guess() {
+    guessedDirection = currentDirection;
+    
+    var angle = angleFromCoordinate(userPosition.coords.latitude, userPosition.coords.longitude, 
+        currentTarget.latlng[0], currentTarget.latlng[1]);
+    document.body.innerHTML += "<p> You guessed: " + guessedDirection + "</p> <p> Correct was: "  + angle + "</p>";
+}
 
 function handleOrientation(event) {
-    document.getElementById("compass").innerHTML =  (360 - event.alpha);
+    currentDirection = (360 - event.alpha);
+    document.getElementById("compass").innerHTML =  currentDirection;
 
 }
 
 function nextTarget()
  {     
-    var item = countries[Math.floor(Math.random()*countries.length)];
-    document.body.innerHTML += "<p>" + item.name + " " + item.latlng + "</p>";
+    currentTarget = countries[Math.floor(Math.random()*countries.length)];
+    document.body.innerHTML += "<p> Your target: " + currentTarget.name + "</p>";
 
-    var angle = angleFromCoordinate(userPosition.coords.latitude, userPosition.coords.longitude, item.latlng[0], item.latlng[1]);
-    document.body.innerHTML += "<p>" + angle + "</p>";
 }
 
 //Loxodrome starting angle 
