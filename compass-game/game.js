@@ -27,7 +27,7 @@ window.onload =
 
 
 function handleOrientation(event) {
-    document.getElementById("compass").innerHTML =  event.alpha;
+    document.getElementById("compass").innerHTML =  (360 - event.alpha);
 
 }
 
