@@ -30,12 +30,21 @@ window.onload =
     
     }
 
+function quitGuessScreen() {
+    document.getElementById("resultOverlay").style.display = "none";
+    nextTarget();
+}
+
 function guess() {
+
+    document.getElementById("resultOverlay").style.display = "block";
     guessedDirection = currentDirection;
     
     var angle = angleFromCoordinate(userPosition.coords.latitude, userPosition.coords.longitude, 
         currentTarget.latlng[0], currentTarget.latlng[1]);
-    document.body.innerHTML += "<p> You guessed: " + guessedDirection.toFixed(1) + "</p> <p> Correct was: "  + angle.toFixed(1) + "</p>";
+
+    document.getElementById("resultGuessed").innerHTML = guessedDirection.toFixed(1);
+    document.getElementById("resultCorrect").innerHTML = angle.toFixed(1);
 }
 
 function handleOrientation(event) {
