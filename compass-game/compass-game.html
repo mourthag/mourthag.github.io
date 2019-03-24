@@ -2,11 +2,25 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="game.js"></script>
+    <script src="game.js"></script>
+    <link rel="stylesheet" type="text/css" href="compass.css">
 </head>
 <body>
-    <button id="nextButton" onclick="nextTarget()">Next</button>
-    <button id="guessButton" onclick="guess()">Guess</button>
-    <p id="compass"></p>
+    <div class="alignHelper">
+        <div class="buttonInterface">
+            <button id="nextButton" onclick="nextTarget()">Next</button>
+            <button id="guessButton" onclick="guess()">Guess</button>        
+        </div>
+
+        <div class="compass">
+            <img src="images/Pointer.png" class="compassPointer">
+            <img src="images/navigate.png" class="compassBackground">
+            <p id="compassDirection"></p> 
+        </div>
+        <div class="textInterface">
+            <p id="target"></p>
+            <p id="location"></p>
+        </div>
+    </div>
 
 </body>

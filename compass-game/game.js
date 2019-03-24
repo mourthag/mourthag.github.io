@@ -19,7 +19,7 @@ window.onload =
         if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     userPosition = position;
-                    document.body.innerHTML += "<p>" + position.coords.latitude + " " + position.coords.longitude + "</p>";
+                    document.getElementById("location").innerHTML = "<p> Your location: " + position.coords.latitude.toFixed(2) + " " + position.coords.longitude.toFixed(2) + "</p>";
             });
        }
         else {
@@ -35,19 +35,19 @@ function guess() {
     
     var angle = angleFromCoordinate(userPosition.coords.latitude, userPosition.coords.longitude, 
         currentTarget.latlng[0], currentTarget.latlng[1]);
-    document.body.innerHTML += "<p> You guessed: " + guessedDirection + "</p> <p> Correct was: "  + angle + "</p>";
+    document.body.innerHTML += "<p> You guessed: " + guessedDirection.toFixed(1) + "</p> <p> Correct was: "  + angle.toFixed(1) + "</p>";
 }
 
 function handleOrientation(event) {
     currentDirection = (360 - event.alpha);
-    document.getElementById("compass").innerHTML =  currentDirection;
+    document.getElementById("compassDirection").innerHTML =  currentDirection.toFixed(1);
 
 }
 
 function nextTarget()
  {     
     currentTarget = countries[Math.floor(Math.random()*countries.length)];
-    document.body.innerHTML += "<p> Your target: " + currentTarget.name + "</p>";
+    document.getElementById("target").innerHTML = "<p> Your target: " + currentTarget.name + "</p>";
 
 }
 
