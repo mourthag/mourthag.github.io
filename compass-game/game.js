@@ -52,7 +52,7 @@ function guess() {
 function handleOrientation(event) {
     currentDirection = (360 - event.alpha);
 
-    if(Math.abs(event.beta) > 15 || Math.abs(event.gamma) > 15)
+    if(Math.abs(event.beta) > 35 || Math.abs(event.gamma) > 35)
         document.getElementById("tiltOverlay").style.display = "block";
     else
         document.getElementById("tiltOverlay").style.display = "none";
