@@ -1,6 +1,7 @@
 body {
     background-color: lightsteelblue;
     height: 100%;
+    font-size: 2rem;
 }
 
 .alignHelper {
@@ -22,18 +23,21 @@ body {
 .buttonInterface {
     display: flex;
     flex-direction: row;
+    margin: 3rem;
+}
+
+.buttonInterface button {
+    width: 10rem;
+    height: 10rem;
+    font-size: 2rem;
 }
 
 #nextButton {
-    width: 5em;
-    height: 3em;
     margin-left: auto;
 }
 
 #guessButton {
-    width: 5em;
-    height: 3em;
-    margin-left: 1em;
+    margin-left: 2rem;
     margin-right: auto;
 }
 
@@ -51,11 +55,11 @@ body {
 .compassBackground {
     margin-left: auto;
     margin-right: auto;
+    width: 30rem;
 }
 
 .compassPointer {
-    max-width: 100%;
-    max-height: 100%;
+    width: 4rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -68,5 +72,15 @@ body {
 @media ( orientation: landscape) {
     .alignHelper {
         flex-direction: row;
+    }
+
+    .buttonInterface button {
+        width: 8rem;
+        height: 8rem;
+        margin: 2rem;
+    }
+
+    .compassBackground {
+        width: 25rem;
     }
 }
