@@ -51,7 +51,7 @@ function handleOrientation(event) {
 function nextTarget()
  {     
     currentTarget = countries[Math.floor(Math.random()*countries.length)];
-    document.getElementById("target").innerHTML = "<p> Your target: " + currentTarget.name + "</p>";
+    document.getElementById("target").innerHTML = "Your target: " + currentTarget.name;
 
 }
 
