@@ -8,18 +8,19 @@
 <body>
     <div class="overlay" id="landscapeOverlay">
         <div class="overlayText">
-            <p style="text-align:center">Please use portrait mode!</p>
-            <p style="text-align:center">The compass doesn't work in landscape!</p>
+            <p>Please use portrait mode!</p>
+            <p>The compass doesn't work in landscape mode!</p>
         </div>
     </div>
     
     <div class="overlay" id="resultOverlay">
         <div class="overlayText">
-            <p style="text-align:center">You guessed:</p>
-            <p style="text-align:center" id="resultGuessed"></p>
-            <p style="text-align:center">Correct was:</p>
-            <p style="text-align:center" id="resultCorrect"></p>
-            <button style="margin-left:auto; margin-right:auto" onclick="quitGuessScreen()">Okay!</button>
+            <h1 id="resultHeader"></h1>
+            <p>You guessed:</p>
+            <p id="resultGuessed"></p>
+            <p>Correct was:</p>
+            <p id="resultCorrect"></p>
+            <button onclick="quitGuessScreen()">Next!</button>
         </div>
     </div>
 

@@ -43,6 +43,8 @@ function guess() {
     var angle = angleFromCoordinate(userPosition.coords.latitude, userPosition.coords.longitude, 
         currentTarget.latlng[0], currentTarget.latlng[1]);
 
+    var won = Math.abs(angle-guessedDirection) < 10;
+    document.getElementById("resultHeader").innerHTML = won ? "You win!" : "You loose!"; 
     document.getElementById("resultGuessed").innerHTML = guessedDirection.toFixed(1);
     document.getElementById("resultCorrect").innerHTML = angle.toFixed(1);
 }
@@ -76,7 +78,7 @@ function angleFromCoordinate( lat1, long1, lat2, long2) {
     if(lat2 < lat1)
         angle = 180 + angle;
     
-    return angle;
+    return angle < 0 ? 360 + angle : angle;
 }
 
 function radianToDegree(num) {
