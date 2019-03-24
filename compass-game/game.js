@@ -41,6 +41,10 @@ function guess() {
 function handleOrientation(event) {
     currentDirection = (360 - event.alpha);
     document.getElementById("compassDirection").innerHTML =  currentDirection.toFixed(1);
+    var compassDisc = document.getElementById("compassDisc");
+    compassDisc.style.webkitTransform = "rotate("+ event.alpha +"deg)";
+    compassDisc.style.MozTransform = "rotate("+ event.alpha +"deg)";
+    compassDisc.style.transform = "rotate("+ event.alpha +"deg)";
 
 }
 
