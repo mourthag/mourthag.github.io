@@ -51,6 +51,13 @@ function guess() {
 
 function handleOrientation(event) {
     currentDirection = (360 - event.alpha);
+
+    if(Math.abs(event.beta) > 15 || Math.abs(event.gamma) > 15)
+        document.getElementById("tiltOverlay").style.display = "block";
+    else
+        document.getElementById("tiltOverlay").style.display = "none";
+
+
     document.getElementById("compassDirection").innerHTML =  currentDirection.toFixed(1);
     var compassDisc = document.getElementById("compassDisc");
     compassDisc.style.webkitTransform = "rotate("+ event.alpha +"deg)";
