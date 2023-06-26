@@ -10,7 +10,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Unity Path Tracing</title>
+    <title>Unity GPU Path Tracing</title>
   </head>
 
   <body>
@@ -19,7 +19,7 @@
 
         <header>
             <h1>Unity Path Tracing</h1>
-            <h2>Real-time Path Tracing in the Unity game engine</h2>
+            <h2>Offline GPU Path Tracing in the Unity game engine</h2>
         </header>
 
         <section id="downloads" class="clearfix">
@@ -29,8 +29,30 @@
 
         <section id="main_content">
             <h3><a name="gallery" class="anchor" href="#gallery"><span class="octicon octicon-link"></span></a>Gallery</h3>
-            Here are some of my renders using my path tracer:<br>
-            <img src="images/porsche.jpg" width="100%">
+            Here are some of the renders created by my path tracer:<br>
+            <img src="images/Dragon.png" width="100%">
+            <img src="images/Porsche.png" width="100%">
+            <img src="images/SunTemple.png" width="100%">
+
+            
+            <h3><a name="idea" class="anchor" href="#idea"><span class="octicon octicon-link"></span></a>The Idea</h3>
+            The main idea behind this project was to practice the theory, I learned in the computer graphics courses in university. Having implemented sever smaller real-time projects, I wanted to start a bigger project. 
+            I chose a GPU path tracer for this project. I started by learning the basics of Vulkan, but quickly decided to not spend the time with huge amounts of boilerplate code since I wanted to focus on the actual algorithms used for image generation.
+            Here, the Unity game engine comes into play. It provides access to write Compute Shaders in HLSL and already has functionality to load objects, textures and create scenes.
+            <br> <br>
+            I started by implementing the basics of two tutorials: 
+            <ol>
+              <li><a href="http://three-eyed-games.com/2018/05/03/gpu-ray-tracing-in-unity-part-1/">GPU Ray Tracing in Unity</a> by David Kuri</li>
+              <li><a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">Ray Tracing in One Weekend</a> by Peter Shirly </li>
+            </ol>
+            The first served as an tutorial to transfer the scene data of unity to a compute shader and how to optimize the basics. The latter provides a thorough definition of PBR materials which I ported to my shader material system. This serves as the first basic version of my project.
+            
+            <h3><a name="inspectors" class="anchor" href="#inspectors"><span class="octicon octicon-link"></span></a>Unity Inspectors</h3>
+            
+            <h3><a name="nee" class="anchor" href="#nee"><span class="octicon octicon-link"></span></a>Next Event Estimation and Russian Roulette</h3>
+            
+            <h3><a name="disney" class="anchor" href="#disney"><span class="octicon octicon-link"></span></a>Disney BSDF</h3>
+        
         </section>
 
         <footer>
